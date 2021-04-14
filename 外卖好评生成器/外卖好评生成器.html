@@ -1,0 +1,58 @@
+<!doctype html>
+<head>
+  <title>外卖好评生成器</title>
+  <style>
+    #box {
+      width: 500px;
+      height: 300px;
+      border: 2px solid blue;
+      border-radius: 1em;
+      padding: 1em;
+      box-sizing: border-box;
+      margin-bottom: 1em;
+    }
+    button {
+      border-radius: .3em;
+      padding: .3em;
+      border: 1px solid blue;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn-20">20字好评</button>
+<button id="btn-50">50字好评</button>
+<script>
+const arr = [
+  '配送快速', '包装整洁', '物美价廉', '份量很足', '味道可口', '味道很棒', '味道很赞', '很符合我胃口', '品质高', '送货快', '下次继续点', '以后常点', '值得好评', '令人满意', '色香味俱全', '食材新鲜', '五分好评', '性价比很高', '用料新鲜', '口感很好', '是我喜欢的味道', '支持', '一如既往的好', '干净卫生', '价格实惠', '包装完整', '值得推荐', '合我口味', '水准在线', '质量有帮正', '比较推荐', '点赞', '比较满意', '及时送达'
+];
+// 生成好评语句
+// @params: num，最少字数
+let generate = function(num) {
+  let ans = '';
+  const n = arr.length;
+  let set = new Set();  // 不生成同样的语句
+  while (ans.length <= num + 10) {
+    const randomIndex = Math.floor(Math.random() * n);
+    const randomStr = arr[randomIndex];
+    if (!(set.has(randomStr))) {
+      ans += randomStr + '，';
+      set.add(randomStr);
+    }
+  }
+  return ans.slice(0, ans.length-1);
+};
+let btn20 = document.querySelector('#btn-20');
+let btn50 = document.querySelector('#btn-50');
+let box = document.querySelector('#box');
+btn20.onclick = function() {
+  const str = generate(20);
+  box.innerText = str;
+};
+btn50.onclick = function() {
+  const str = generate(50);
+  box.innerText = str;
+};
+</script>
+</body>
