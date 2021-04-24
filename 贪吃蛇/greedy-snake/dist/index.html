@@ -1,0 +1,88 @@
+<!doctype html>
+<head>
+<title>贪吃蛇</title>
+<style>
+:root {
+  --game-panel-background: #eee;
+}
+#container {
+  margin: 50px auto 0 auto;
+  width: 320px;
+  height: 360px;
+  padding: 20px 10px 10px 10px;
+  border: 2px solid #000;
+  background: rgb(206, 206, 206);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-between;
+  border-radius: 10px;
+}
+#game-panel {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000;
+  background-color: var(--game-panel-background);
+  position: relative;
+}
+#game-panel #food {
+  width: 10px;
+  height: 10px;
+  /* box-sizing: border-box;
+  border: 1px solid var(--game-panel-background); */
+  /* background: blue; */
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  /* background-image: linear-gradient(45deg, blue 25%, transparent 0),
+                    linear-gradient(45deg, transparent 75%, blue 0);
+  background-position: 0 0, 5px 5px;
+  background-size: 10px 10px; */
+  font-size: 2px;
+}
+#game-panel #food>span {
+  font-size: 2px;
+}
+#game-panel #snake #snake-head,#snake-body {
+  background: rgb(15, 15, 15);
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--game-panel-background);
+  box-sizing: border-box;
+  position: absolute;
+}
+#snake-head {
+  border-radius: 10px;
+}
+#score-panel {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+#score-panel span {
+  font-family: courier;
+  font-size: 20px;
+  font-weight: bold;
+}
+#game-status {
+  font-family: courier;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="game-panel">
+    <div id="food"><span>&#8984;</span></div>
+    <div id="snake">
+      <div id="snake-head"></div>
+    </div>
+  </div>
+  <div id="score-panel">
+    <span>score:<span id="score">0</span></span>
+    <span>level:<span id="level">1</span></span>
+  </div>
+  <div id="game-status">game running</div>
+</div>
+<script src="./bundle.js"></script>
+</body>
