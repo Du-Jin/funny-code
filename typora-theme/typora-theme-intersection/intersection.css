@@ -336,6 +336,10 @@ code {
     padding-left: 8px;
 }
 
+/* 代码块鼠标光标  */
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid #e3be79;
+  }
 
 .md-task-list-item > input {
   margin-left: -1.3em;
